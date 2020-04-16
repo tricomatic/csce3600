@@ -1,0 +1,26 @@
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 calc.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 calculator.c
+Rrw------- 1 yak0010 yak0010 238 Feb  3 13:01 demo.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 f3.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 fileof.c
+This is a new line
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 fileof.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 filer.cpp
+Rrw-rw---- 1 yak0010 yak0010 610 Feb  3 13:08 file.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 hello
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 hello.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 hello.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 hello.py
+Rrw------- 1 yak0010 yak0010 230 Feb  3 15:57 hello.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 index.html
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 index.php
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 main.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 main.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 number.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 numbers.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 public_html
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:39 rec03
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 ronaldo.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:40 sedfile.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 test.c
+Rrw------- 1 yak0010 yak0010  34 Feb  3 11:20 test.cpp

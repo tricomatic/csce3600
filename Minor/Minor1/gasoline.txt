@@ -1,0 +1,6 @@
+Station,Regular,Premium
+Exxon,2.39,2.50
+Mobile,2.19,2.25
+Shell,3.19,3.29
+CircleK,3.01,3.15
+QT,2.11,2.15

@@ -1,0 +1,756 @@
+Script started on 2020-02-03 16:39:30-0600
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ ls -l > sedfile.tt[Kxt
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ sed -i "s/^-/R/g" sedfile.txt
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ sed -n 1,10p sedfile.txt
+total 16
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 calc.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 calculator.c
+Rrw------- 1 yak0010 yak0010 238 Feb  3 13:01 demo.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 f3.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 fileof.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 fileof.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 filer.cpp
+Rrw-rw---- 1 yak0010 yak0010 610 Feb  3 13:08 file.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 hello
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ sed -i 1d sedfile.txt
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ sed -i '/s[Kfileof.c/a This is a new line' sedfile.txt
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ sed -n 1,10p sedfile.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 calc.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 calculator.c
+Rrw------- 1 yak0010 yak0010 238 Feb  3 13:01 demo.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 f3.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 fileof.c
+This is a new line
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 fileof.cpp
+This is a new line
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 filer.cpp
+Rrw-rw---- 1 yak0010 yak0010 610 Feb  3 13:08 file.txt
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ sed -i 8d sedfile.txt
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ sed -n 1,10p sedfile.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 calc.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 calculator.c
+Rrw------- 1 yak0010 yak0010 238 Feb  3 13:01 demo.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 f3.c
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 fileof.c
+This is a new line
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 fileof.cpp
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:11 filer.cpp
+Rrw-rw---- 1 yak0010 yak0010 610 Feb  3 13:08 file.txt
+Rrw------- 1 yak0010 yak0010   0 Feb  3 16:16 hello
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ clear
+[3J[H[2J]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ ps -ef > gawkfile.txt
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ gawk 'NR <10[K[K-1[K[K=10' gawkfile.txt
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Jan19 ?        00:01:50 /sbin/init splash
+root         2     0  0 Jan19 ?        00:00:01 [kthreadd]
+root         6     2  0 Jan19 ?        00:00:00 [mm_percpu_wq]
+root         7     2  0 Jan19 ?        00:00:10 [ksoftirqd/0]
+root         8     2  0 Jan19 ?        00:08:54 [rcu_sched]
+root         9     2  0 Jan19 ?        00:00:00 [rcu_bh]
+root        10     2  0 Jan19 ?        00:00:00 [migration/0]
+root        11     2  0 Jan19 ?        00:00:02 [watchdog/0]
+root        12     2  0 Jan19 ?        00:00:00 [cpuhp/0]
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ gawk 'END {print n[KNR}' gawkfile.txt
+298
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ who [Kami
+yak0010
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ gawk '$1 [K[K[K[K[K[K[K[K[Kgawk '/yak0010/{print NR, $0}' gawkfile.txt
+122 root      4376  1213  0 15:54 ?        00:00:00 sshd: yak0010 [priv]
+123 yak0010   4540  4376  0 15:54 ?        00:00:00 sshd: yak0010@pts/4
+124 yak0010   4541  4540  0 15:54 pts/4    00:00:00 -bash
+221 yak0010  16117  4541  0 16:39 pts/4    00:00:00 script rec03
+222 yak0010  16118 16117  0 16:39 pts/3    00:00:00 bash -i
+250 yak0010  18215 16118  0 16:45 pts/3    00:00:00 ps -ef
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ gawk '$1 ~ /yak0010/{printNR[K[K NR, $0}' gawkfile.txt
+123 yak0010   4540  4376  0 15:54 ?        00:00:00 sshd: yak0010@pts/4
+124 yak0010   4541  4540  0 15:54 pts/4    00:00:00 -bash
+221 yak0010  16117  4541  0 16:39 pts/4    00:00:00 script rec03
+222 yak0010  16118 16117  0 16:39 pts/3    00:00:00 bash -i
+250 yak0010  18215 16118  0 16:45 pts/3    00:00:00 ps -ef
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ gawk 'NF > 8 {print NR, NR[Kf}' gawkfile.txt
+2 
+61 
+64 
+67 
+69 
+70 
+71 
+74 
+75 
+76 
+77 
+79 
+80 
+81 
+83 
+84 
+85 
+86 
+87 
+88 
+89 
+91 
+92 
+93 
+94 
+96 
+97 
+98 
+100 
+104 
+108 
+109 
+113 
+115 
+117 
+119 
+120 
+122 
+123 
+125 
+126 
+128 
+129 
+131 
+132 
+134 
+135 
+137 
+138 
+140 
+141 
+144 
+145 
+147 
+148 
+149 
+150 
+151 
+154 
+155 
+158 
+159 
+161 
+162 
+166 
+167 
+169 
+172 
+173 
+176 
+178 
+179 
+182 
+183 
+185 
+187 
+188 
+190 
+192 
+193 
+195 
+196 
+198 
+199 
+201 
+203 
+204 
+205 
+206 
+208 
+210 
+211 
+213 
+217 
+218 
+220 
+221 
+222 
+223 
+224 
+225 
+230 
+231 
+232 
+235 
+237 
+238 
+240 
+241 
+243 
+244 
+246 
+247 
+248 
+249 
+250 
+252 
+253 
+255 
+256 
+258 
+259 
+271 
+272 
+274 
+275 
+276 
+277 
+279 
+281 
+282 
+283 
+284 
+286 
+287 
+289 
+290 
+291 
+293 
+296 
+297 
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ gawk 'NF > 8 {for(i = 9; i < [K= NF; i++) print NR, Nf[KF, $1}1[K' gawkfile.tt[Kxt
+2 9 root
+61 11 root
+61 11 root
+61 11 root
+64 10 root
+64 10 root
+67 9 root
+69 9 root
+70 10 root
+70 10 root
+71 9 daemon
+74 14 message+
+74 14 message+
+74 14 message+
+74 14 message+
+74 14 message+
+74 14 message+
+75 9 root
+76 12 root
+76 12 root
+76 12 root
+76 12 root
+77 9 syslog
+79 9 root
+80 9 whoopsie
+81 10 root
+81 10 root
+83 18 root
+83 18 root
+83 18 root
+83 18 root
+83 18 root
+83 18 root
+83 18 root
+83 18 root
+83 18 root
+83 18 root
+84 10 root
+84 10 root
+85 10 avahi
+85 10 avahi
+86 10 avahi
+86 10 avahi
+87 15 root
+87 15 root
+87 15 root
+87 15 root
+87 15 root
+87 15 root
+87 15 root
+88 9 root
+89 9 kernoops
+91 11 root
+91 11 root
+91 11 root
+92 9 root
+93 10 lightdm
+93 10 lightdm
+94 15 lightdm
+94 15 lightdm
+94 15 lightdm
+94 15 lightdm
+94 15 lightdm
+94 15 lightdm
+94 15 lightdm
+96 9 lightdm
+97 12 lightdm
+97 12 lightdm
+97 12 lightdm
+97 12 lightdm
+98 9 lightdm
+100 12 lightdm
+100 12 lightdm
+100 12 lightdm
+100 12 lightdm
+104 10 root
+104 10 root
+108 11 root
+108 11 root
+108 11 root
+109 10 lightdm
+109 10 lightdm
+113 9 fi0037
+115 10 root
+115 10 root
+117 9 fi0037
+119 10 root
+119 10 root
+120 9 pwt0013
+122 10 root
+122 10 root
+123 9 yak0010
+125 9 statd
+126 9 root
+128 10 root
+128 10 root
+129 9 cbc0195
+131 10 root
+131 10 root
+132 9 cbc0195
+134 10 root
+134 10 root
+135 9 sg0919
+137 10 root
+137 10 root
+138 9 ji0069
+140 10 root
+140 10 root
+141 9 aaa0694
+144 10 root
+144 10 root
+145 9 aab0309
+147 9 aab0309
+148 10 root
+148 10 root
+149 10 root
+149 10 root
+150 9 aa1302
+151 9 aa1302
+154 10 root
+154 10 root
+155 9 ck0340
+158 10 root
+158 10 root
+159 9 aab0309
+161 10 root
+161 10 root
+162 9 np0352
+166 10 root
+166 10 root
+167 9 jdd0311
+169 12 root
+169 12 root
+169 12 root
+169 12 root
+172 10 root
+172 10 root
+173 9 sm1403
+176 10 root
+176 10 root
+178 10 root
+178 10 root
+179 9 np0352
+182 10 root
+182 10 root
+183 9 wcq0001
+185 9 cju0012
+187 10 root
+187 10 root
+188 9 jl0844
+190 9 aes0292
+192 10 root
+192 10 root
+193 9 joa0040
+195 10 root
+195 10 root
+196 9 np0352
+198 10 root
+198 10 root
+199 9 xl0186
+201 9 root
+203 10 root
+203 10 root
+204 10 root
+204 10 root
+205 10 root
+205 10 root
+206 9 cbs0179
+208 9 gjt0034
+210 10 root
+210 10 root
+211 9 cbs0179
+213 9 gjt0034
+217 9 gjt0034
+218 9 cju0012
+220 9 joa0040
+221 9 yak0010
+222 9 yak0010
+223 9 gjt0034
+224 10 root
+224 10 root
+225 9 jhd0044
+230 10 root
+230 10 root
+231 10 root
+231 10 root
+232 9 nei0007
+235 9 mb0909
+237 10 root
+237 10 root
+238 9 xy0065
+240 10 root
+240 10 root
+241 9 xy0065
+243 10 root
+243 10 root
+244 9 bj0141
+246 9 wcq0001
+247 9 mb0909
+248 10 root
+248 10 root
+249 10 sshd
+249 10 sshd
+250 9 yak0010
+252 10 root
+252 10 root
+253 9 jmj0264
+255 10 root
+255 10 root
+256 9 jhd0044
+258 10 root
+258 10 root
+259 9 jkd0144
+271 10 root
+271 10 root
+272 9 mir0028
+274 9 root
+275 10 root
+275 10 root
+276 10 root
+276 10 root
+277 9 jl0844
+279 9 jl0844
+281 10 root
+281 10 root
+282 9 jl0844
+283 10 root
+283 10 root
+284 9 nc0254
+286 10 root
+286 10 root
+287 9 jds0687
+289 10 root
+289 10 root
+290 10 root
+290 10 root
+291 9 mir0028
+293 9 aas0376
+296 10 root
+296 10 root
+297 9 ncp0063
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ gawk 'BEGIN {OFS = "\t"}; {print $1, $3, $2, $4, $5, $6, $7, $7[K8, $9[K[K[K[K}' gawkfile.txt
+UID	PPID	PID	C	STIME	TTY	TIME	CMD
+root	0	1	0	Jan19	?	00:01:50	/sbin/init
+root	0	2	0	Jan19	?	00:00:01	[kthreadd]
+root	2	6	0	Jan19	?	00:00:00	[mm_percpu_wq]
+root	2	7	0	Jan19	?	00:00:10	[ksoftirqd/0]
+root	2	8	0	Jan19	?	00:08:54	[rcu_sched]
+root	2	9	0	Jan19	?	00:00:00	[rcu_bh]
+root	2	10	0	Jan19	?	00:00:00	[migration/0]
+root	2	11	0	Jan19	?	00:00:02	[watchdog/0]
+root	2	12	0	Jan19	?	00:00:00	[cpuhp/0]
+root	2	13	0	Jan19	?	00:00:00	[cpuhp/1]
+root	2	14	0	Jan19	?	00:00:02	[watchdog/1]
+root	2	15	0	Jan19	?	00:00:00	[migration/1]
+root	2	16	0	Jan19	?	00:39:03	[ksoftirqd/1]
+root	2	19	0	Jan19	?	00:00:00	[cpuhp/2]
+root	2	20	0	Jan19	?	00:00:01	[watchdog/2]
+root	2	21	0	Jan19	?	00:00:00	[migration/2]
+root	2	22	0	Jan19	?	00:00:10	[ksoftirqd/2]
+root	2	25	0	Jan19	?	00:00:00	[kdevtmpfs]
+root	2	26	0	Jan19	?	00:00:00	[netns]
+root	2	27	0	Jan19	?	00:00:00	[rcu_tasks_kthre]
+root	2	28	0	Jan19	?	00:00:00	[kauditd]
+root	2	32	0	Jan19	?	00:00:02	[khungtaskd]
+root	2	33	0	Jan19	?	00:00:00	[oom_reaper]
+root	2	34	0	Jan19	?	00:00:00	[writeback]
+root	2	35	0	Jan19	?	00:00:00	[kcompactd0]
+root	2	36	0	Jan19	?	00:00:00	[ksmd]
+root	2	37	0	Jan19	?	00:00:00	[khugepaged]
+root	2	38	0	Jan19	?	00:00:00	[crypto]
+root	2	39	0	Jan19	?	00:00:00	[kintegrityd]
+root	2	40	0	Jan19	?	00:00:00	[kblockd]
+root	2	41	0	Jan19	?	00:00:00	[ata_sff]
+root	2	42	0	Jan19	?	00:00:00	[md]
+root	2	43	0	Jan19	?	00:00:00	[edac-poller]
+root	2	44	0	Jan19	?	00:00:00	[devfreq_wq]
+root	2	45	0	Jan19	?	00:00:00	[watchdogd]
+root	2	48	0	Jan19	?	00:00:39	[kswapd0]
+root	2	49	0	Jan19	?	00:00:00	[kworker/u7:0]
+root	2	50	0	Jan19	?	00:00:00	[ecryptfs-kthrea]
+root	2	92	0	Jan19	?	00:00:00	[kthrotld]
+root	2	93	0	Jan19	?	00:00:00	[acpi_thermal_pm]
+root	2	95	0	Jan19	?	00:00:00	[scsi_eh_0]
+root	2	96	0	Jan19	?	00:00:00	[scsi_tmf_0]
+root	2	97	0	Jan19	?	00:00:00	[scsi_eh_1]
+root	2	98	0	Jan19	?	00:00:00	[scsi_tmf_1]
+root	2	100	0	Jan19	?	00:00:00	[ipv6_addrconf]
+root	2	110	0	Jan19	?	00:00:00	[kstrp]
+root	2	127	0	Jan19	?	00:00:00	[charger_manager]
+root	2	197	0	Jan19	?	00:00:00	[mpt_poll_0]
+root	2	198	0	Jan19	?	00:00:00	[mpt/0]
+root	2	203	0	Jan19	?	00:00:00	[scsi_eh_2]
+root	2	204	0	Jan19	?	00:00:00	[scsi_tmf_2]
+root	2	205	0	Jan19	?	00:00:00	[ttm_swap]
+root	2	206	0	Jan19	?	00:00:00	[irq/16-vmwgfx]
+root	2	209	0	Jan19	?	00:02:53	[kworker/2:1H]
+root	2	279	0	Jan19	?	00:00:37	[jbd2/sda1-8]
+root	2	280	0	Jan19	?	00:00:00	[ext4-rsv-conver]
+root	2	333	0	Jan19	?	00:00:00	[rpciod]
+root	2	334	0	Jan19	?	00:00:00	[xprtiod]
+root	1	343	0	Jan19	?	00:00:12	/lib/systemd/systemd-udevd
+root	1	374	0	Jan19	?	00:00:01	vmware-vmblock-fuse
+systemd+	1	554	0	Jan19	?	00:00:01	/lib/systemd/systemd-resolved
+systemd+	1	557	0	Jan19	?	00:00:01	/lib/systemd/systemd-timesyncd
+root	1	559	0	Jan19	?	00:00:02	/sbin/rpcbind
+root	1	681	0	Jan19	?	00:00:00	/usr/bin/VGAuthService
+root	1	687	0	Jan19	?	00:13:39	/usr/bin/vmtoolsd
+root	1	692	0	Jan19	?	00:00:00	/usr/sbin/ModemManager
+root	1	698	0	Jan19	?	00:00:26	/usr/lib/udisks2/udisksd
+root	1	708	0	Jan19	?	00:00:37	/usr/sbin/irqbalance
+root	1	709	0	Jan19	?	00:00:00	/usr/bin/python3
+daemon	1	710	0	Jan19	?	00:00:00	/usr/sbin/atd
+root	1	711	0	Jan19	?	01:04:54	/usr/lib/accountsservice/accounts-daemon
+root	1	713	0	Jan19	?	00:00:56	/lib/systemd/systemd-logind
+message+	1	714	0	Jan19	?	00:03:19	/usr/bin/dbus-daemon
+root	1	737	0	Jan19	?	00:00:00	/usr/sbin/NetworkManager
+root	1	739	0	Jan19	?	00:00:04	/sbin/wpa_supplicant
+syslog	1	754	0	Jan19	?	00:01:09	/usr/sbin/rsyslogd
+root	1	755	0	Jan19	?	00:00:00	/usr/sbin/acpid
+root	1	835	0	Jan19	?	00:00:30	/usr/lib/policykit-1/polkitd
+whoopsie	1	1165	0	Jan19	?	00:00:00	/usr/bin/whoopsie
+root	1	1166	0	Jan19	?	00:00:00	/usr/bin/python3
+root	1	1185	0	Jan19	?	00:00:08	/usr/sbin/lightdm
+root	1185	1198	0	Jan19	tty7	00:00:12	/usr/lib/xorg/Xorg
+root	1	1203	0	Jan19	?	00:01:10	/usr/sbin/automount
+avahi	1	1206	0	Jan19	?	00:00:07	avahi-daemon:
+avahi	1206	1208	0	Jan19	?	00:00:00	avahi-daemon:
+root	1	1210	0	Jan19	tty1	00:00:00	/sbin/agetty
+root	1	1213	0	Jan19	?	00:00:42	/usr/sbin/sshd
+kernoops	1	1283	0	Jan19	?	00:00:24	/usr/sbin/kerneloops
+kernoops	1	1285	0	Jan19	?	00:00:24	/usr/sbin/kerneloops
+root	1185	1307	0	Jan19	?	00:00:01	lightdm
+root	1	1356	0	Jan19	?	00:02:30	/usr/sbin/console-kit-daemon
+lightdm	1307	1474	0	Jan19	?	00:00:00	/bin/sh
+lightdm	1	1557	0	Jan19	?	00:00:01	/usr/bin/dbus-daemon
+lightdm	1474	1560	0	Jan19	?	00:00:28	/usr/sbin/unity-greeter
+lightdm	1	1604	0	Jan19	?	00:00:00	/usr/lib/at-spi2-core/at-spi-bus-launcher
+lightdm	1604	1626	0	Jan19	?	00:00:00	/usr/bin/dbus-daemon
+lightdm	1	1633	0	Jan19	?	00:00:00	/usr/lib/at-spi2-core/at-spi2-registryd
+lightdm	1	1638	0	Jan19	?	00:00:00	/usr/lib/gvfs/gvfsd
+lightdm	1	1645	0	Jan19	?	00:00:00	/usr/lib/gvfs/gvfsd-fuse
+lightdm	1	1655	0	Jan19	?	00:00:00	/usr/lib/dconf/dconf-service
+lightdm	1	1665	0	Jan19	?	00:00:00	nm-applet
+lightdm	1	1670	0	Jan19	?	00:00:08	/usr/lib/unity-settings-daemon/unity-settings-daemon
+root	1213	1676	0	Jan31	?	00:00:00	sshd:
+root	1	1693	0	Jan19	?	00:00:00	/usr/lib/upower/upowerd
+root	1	1696	0	Jan19	?	00:00:05	/usr/lib/packagekit/packagekitd
+colord	1	1709	0	Jan19	?	00:00:00	/usr/lib/colord/colord
+root	1185	1716	0	Jan19	?	00:00:00	lightdm
+lightdm	1	1739	0	Jan19	?	00:00:00	/usr/bin/pulseaudio
+rtkit	1	1740	0	Jan19	?	00:00:14	/usr/lib/rtkit/rtkit-daemon
+lightdm	1739	1755	0	Jan19	?	00:00:00	/usr/lib/i386-linux-gnu/pulse/gconf-helper
+lightdm	1	1757	0	Jan19	?	00:00:01	/usr/lib/i386-linux-gnu/gconf/gconfd-2
+fi0037	1676	1773	0	Jan31	?	00:00:00	sshd:
+fi0037	1773	1774	0	Jan31	pts/15	00:00:00	-bash
+root	1213	1917	0	Jan31	?	00:00:00	sshd:
+root	2	1918	0	Jan19	?	00:00:00	[nfsiod]
+fi0037	1917	1982	0	Jan31	?	00:00:00	sshd:
+fi0037	1982	1983	0	Jan31	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1213	4190	0	15:54	?	00:00:00	sshd:
+pwt0013	4190	4331	0	15:54	?	00:00:00	sshd:
+pwt0013	4331	4332	0	15:54	pts/11	00:00:00	-bash
+root	1213	4376	0	15:54	?	00:00:00	sshd:
+yak0010	4376	4540	0	15:54	?	00:00:00	sshd:
+yak0010	4540	4541	0	15:54	pts/4	00:00:00	-bash
+statd	1	4776	0	Jan19	?	00:00:00	/sbin/rpc.statd
+root	2	4938	0	Jan20	?	00:00:00	[NFSv4
+root	2	5757	0	16:02	?	00:00:00	[kworker/u6:0]
+root	1213	5814	0	Jan31	?	00:00:00	sshd:
+cbc0195	5814	5894	0	Jan31	?	00:00:00	sshd:
+cbc0195	5894	5895	0	Jan31	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1213	5896	0	Jan31	?	00:00:00	sshd:
+cbc0195	5896	5956	0	Jan31	?	00:00:01	sshd:
+cbc0195	5956	5957	0	Jan31	pts/21	00:00:00	-bash
+root	1213	6314	0	10:29	?	00:00:00	sshd:
+sg0919	6314	6555	0	10:29	?	00:00:00	sshd:
+sg0919	6555	6556	0	10:29	pts/18	00:00:00	-bash
+root	1213	6704	0	16:10	?	00:00:00	sshd:
+ji0069	6704	6777	0	16:10	?	00:00:00	sshd:
+ji0069	6777	6778	0	16:10	pts/0	00:00:00	-bash
+root	1213	7579	0	16:14	?	00:00:00	sshd:
+aaa0694	7579	7648	0	16:14	?	00:00:00	sshd:
+aaa0694	7648	7649	0	16:14	?	00:00:00	/usr/lib/openssh/sftp-server
+ji0069	6778	7681	0	16:16	pts/0	00:00:00	./a.out
+root	1213	7693	0	16:17	?	00:00:00	sshd:
+aab0309	7693	7765	0	16:17	?	00:00:00	sshd:
+aab0309	7765	7766	0	16:17	pts/1	00:00:00	-bash
+aab0309	7766	7824	0	16:17	pts/1	00:00:00	vi
+root	1213	8004	0	16:20	?	00:00:00	sshd:
+root	1213	8016	0	16:20	?	00:00:00	sshd:
+aa1302	8004	8075	0	16:20	?	00:00:00	sshd:
+aa1302	8016	8133	0	16:20	?	00:00:00	sshd:
+aa1302	8075	8134	0	16:20	pts/9	00:00:00	-bash
+aa1302	8133	8171	0	16:20	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1213	8173	0	16:20	?	00:00:00	sshd:
+ck0340	8173	8243	0	16:20	?	00:00:00	sshd:
+ck0340	8243	8244	0	16:20	?	00:00:00	/usr/lib/openssh/sftp-server
+root	2	8247	0	16:20	?	00:00:00	[kworker/u6:2]
+root	1213	8248	0	16:20	?	00:00:00	sshd:
+aab0309	8248	8311	0	16:20	?	00:00:01	sshd:
+aab0309	8311	8312	0	16:20	pts/14	00:00:00	-bash
+root	1213	9624	0	10:57	?	00:00:00	sshd:
+np0352	9624	9792	0	10:57	?	00:00:00	sshd:
+np0352	9792	9815	0	10:57	pts/27	00:00:00	-bash
+root	2	10002	0	16:24	?	00:00:00	[kworker/0:1]
+root	2	10007	0	16:24	?	00:00:03	[kworker/1:0]
+root	1213	10121	0	14:36	?	00:00:00	sshd:
+jdd0311	10121	10211	0	14:36	?	00:00:00	sshd:
+jdd0311	10211	10213	0	14:36	pts/47	00:00:00	-bash
+root	1	10489	4	Feb02	?	01:43:10	python
+jl0844	1	11230	0	Jan27	?	00:00:00	SCREEN
+jl0844	11230	11231	0	Jan27	pts/16	00:00:00	/bin/bash
+root	1213	11450	0	16:26	?	00:00:00	sshd:
+sm1403	11450	11588	0	16:26	?	00:00:00	sshd:
+sm1403	11588	11589	0	16:26	pts/5	00:00:00	-bash
+jl0844	11230	11630	0	Jan27	pts/19	00:00:00	/bin/bash
+root	1213	11662	0	16:28	?	00:00:00	sshd:
+root	2	11746	0	14:40	?	00:00:01	[kworker/2:2]
+root	1213	11903	0	16:28	?	00:00:00	sshd:
+np0352	11903	11964	0	16:28	?	00:00:00	sshd:
+np0352	11964	11966	0	16:28	?	00:00:00	/usr/lib/openssh/sftp-server
+root	2	12244	0	16:29	?	00:00:00	[kworker/u6:3]
+root	1213	12256	0	16:29	?	00:00:00	sshd:
+wcq0001	12256	12333	0	16:29	?	00:00:00	sshd:
+wcq0001	12333	12334	0	16:29	pts/7	00:00:00	bash
+cju0012	11662	12445	0	16:29	?	00:00:00	sshd:
+cju0012	12445	12446	0	16:29	pts/8	00:00:00	-bash
+root	1213	12484	0	16:30	?	00:00:00	sshd:
+jl0844	1	12499	0	Jan27	?	00:00:00	SCREEN
+jl0844	12499	12500	0	Jan27	pts/33	00:00:00	/bin/bash
+aes0292	12484	12555	0	16:30	?	00:00:00	sshd:
+aes0292	12555	12556	0	16:30	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1213	12580	0	16:31	?	00:00:00	sshd:
+joa0040	12580	12655	0	16:31	?	00:00:00	sshd:
+joa0040	12655	12656	0	16:31	pts/17	00:00:00	-bash
+root	1213	12988	0	16:31	?	00:00:00	sshd:
+np0352	12988	13072	0	16:31	?	00:00:00	sshd:
+np0352	13072	13073	0	16:31	pts/20	00:00:00	-bash
+root	1213	13371	0	16:31	?	00:00:00	sshd:
+xl0186	13371	13451	0	16:32	?	00:00:00	sshd:
+xl0186	13451	13452	0	16:32	pts/24	00:00:00	-bash
+root	1	13494	0	00:09	?	00:00:00	/usr/sbin/cupsd
+root	1	13495	0	00:09	?	00:00:00	/usr/sbin/cups-browsed
+root	1213	13507	0	16:32	?	00:00:00	sshd:
+root	1213	13525	0	16:32	?	00:00:00	sshd:
+root	1213	13741	0	16:32	?	00:00:00	sshd:
+cbs0179	13525	13757	0	16:32	?	00:00:00	sshd:
+cbs0179	13757	13758	0	16:32	pts/25	00:00:00	-bash
+gjt0034	13741	13942	0	16:32	?	00:00:00	sshd:
+gjt0034	13942	13978	0	16:32	pts/26	00:00:00	-bash
+root	1213	14198	0	16:32	?	00:00:00	sshd:
+cbs0179	13507	14258	0	16:32	?	00:00:00	sshd:
+cbs0179	14258	14259	0	16:32	?	00:00:00	/usr/lib/openssh/sftp-server
+gjt0034	14198	14318	0	16:32	?	00:00:00	sshd:
+gjt0034	14318	14319	0	16:32	pts/28	00:00:00	-bash
+root	2	14893	0	16:35	?	00:00:00	[kworker/0:0]
+root	2	15449	0	16:36	?	00:00:00	[kworker/1:2]
+gjt0034	14319	15465	0	16:36	pts/28	00:00:00	vim
+cju0012	12446	15495	0	16:37	pts/8	00:00:00	vi
+root	2	15518	0	16:37	?	00:00:00	[kworker/2:1]
+joa0040	12656	15555	0	16:38	pts/17	00:00:01	emacs
+yak0010	4541	16117	0	16:39	pts/4	00:00:00	script
+yak0010	16117	16118	0	16:39	pts/3	00:00:00	bash
+gjt0034	13978	16282	0	16:41	pts/26	00:00:00	vim
+root	1213	16427	0	Jan20	?	00:00:02	sshd:
+jhd0044	16427	16501	0	Jan20	?	00:00:05	sshd:
+jhd0044	16501	16502	0	Jan20	pts/2	00:00:00	-bash
+root	2	16761	0	16:41	?	00:00:00	[kworker/0:2]
+root	2	17285	0	16:42	?	00:00:00	[kworker/1:1]
+root	2	17592	0	Jan28	?	00:00:00	[kworker/1:1H]
+root	1213	17712	0	12:11	?	00:00:00	sshd:
+root	1213	17764	0	16:43	?	00:00:00	sshd:
+nei0007	17712	17771	0	12:11	?	00:00:00	sshd:
+nei0007	17771	17772	0	12:11	pts/23	00:00:00	-bash
+root	2	17778	0	16:43	?	00:00:00	[kworker/2:0]
+mb0909	17764	17840	0	16:43	?	00:00:00	sshd:
+mb0909	17840	17841	0	16:43	pts/29	00:00:00	-bash
+root	1213	17881	0	16:44	?	00:00:00	sshd:
+xy0065	17881	17950	0	16:44	?	00:00:00	sshd:
+xy0065	17950	17951	0	16:44	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1213	17969	0	16:44	?	00:00:00	sshd:
+xy0065	17969	18028	0	16:44	?	00:00:00	sshd:
+xy0065	18028	18029	0	16:44	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1213	18084	0	Jan27	?	00:00:01	sshd:
+bj0141	18084	18155	0	Jan27	?	00:00:01	sshd:
+bj0141	18155	18156	0	Jan27	?	00:00:00	/usr/lib/openssh/sftp-server
+wcq0001	12334	18158	1	16:45	pts/7	00:00:00	vim
+mb0909	17841	18192	0	16:45	pts/29	00:00:00	vim
+root	1213	18207	1	16:45	?	00:00:00	sshd:
+sshd	18207	18208	0	16:45	?	00:00:00	sshd:
+yak0010	16118	18215	0	16:45	pts/3	00:00:00	ps
+root	2	19861	0	Jan28	?	00:10:06	[kworker/1:0H]
+root	1213	22225	0	12:52	?	00:00:00	sshd:
+jmj0264	22225	22357	0	12:52	?	00:00:01	sshd:
+jmj0264	22357	22358	0	12:52	pts/35	00:00:00	-bash
+root	1213	23294	0	Jan31	?	00:00:00	sshd:
+jhd0044	23294	23354	0	Jan31	?	00:00:00	sshd:
+jhd0044	23354	23355	0	Jan31	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1213	24571	0	13:01	?	00:00:00	sshd:
+jkd0144	24571	24641	0	13:01	?	00:00:00	sshd:
+jkd0144	24641	24642	0	13:01	?	00:00:00	/usr/lib/openssh/sftp-server
+root	2	24917	0	Jan28	?	00:00:00	[kworker/0:0H]
+root	2	25766	0	Jan28	?	00:00:16	[kworker/0:1H]
+root	2	25986	0	Jan28	?	00:00:00	[kworker/2:2H]
+root	2	26606	0	Jan30	?	00:00:00	[xfsalloc]
+root	2	26612	0	Jan30	?	00:00:00	[xfs_mru_cache]
+root	2	26618	0	Jan30	?	00:00:00	[jfsIO]
+root	2	26619	0	Jan30	?	00:00:00	[jfsCommit]
+root	2	26620	0	Jan30	?	00:00:00	[jfsCommit]
+root	2	26621	0	Jan30	?	00:00:00	[jfsCommit]
+root	2	26622	0	Jan30	?	00:00:00	[jfsSync]
+root	1213	26816	0	08:10	?	00:00:00	sshd:
+mir0028	26816	26875	0	08:10	?	00:00:00	sshd:
+mir0028	26875	26876	0	08:10	pts/6	00:00:00	-bash
+root	1	27042	0	Jan28	?	00:00:01	/usr/sbin/cron
+root	1213	27423	0	Feb02	?	00:00:00	sshd:
+root	1213	27441	0	Feb02	?	00:00:00	sshd:
+jl0844	27423	27486	0	Feb02	?	00:00:01	sshd:
+jl0844	27486	27545	0	Feb02	pts/22	00:00:00	-bash
+jl0844	27441	27546	0	Feb02	?	00:00:00	sshd:
+jl0844	27546	27564	0	Feb02	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1213	27945	0	Feb02	?	00:00:00	sshd:
+jl0844	27945	28004	0	Feb02	?	00:00:01	sshd:
+root	1213	28602	0	13:26	?	00:00:00	sshd:
+nc0254	28602	28673	0	13:26	?	00:00:00	sshd:
+nc0254	28673	28674	0	13:26	pts/13	00:00:00	-bash
+root	1213	29053	0	Jan31	?	00:00:00	sshd:
+jds0687	29053	29123	0	Jan31	?	00:00:00	sshd:
+jds0687	29123	29124	0	Jan31	pts/10	00:00:00	-bash
+root	1213	30268	0	09:17	?	00:00:00	sshd:
+root	1213	30294	0	Jan31	?	00:00:00	sshd:
+mir0028	30268	30328	0	09:17	?	00:00:00	sshd:
+mir0028	30328	30329	0	09:17	pts/12	00:00:00	-bash
+aas0376	30294	30363	0	Jan31	?	00:00:00	sshd:
+aas0376	30363	30364	0	Jan31	?	00:00:00	/usr/lib/openssh/sftp-server
+root	1	31049	0	Jan28	?	00:02:46	/lib/systemd/systemd-journald
+root	1213	32195	0	13:44	?	00:00:00	sshd:
+ncp0063	32195	32270	0	13:44	?	00:00:00	sshd:
+ncp0063	32270	32271	0	13:44	pts/38	00:00:00	-bash
+]0;yak0010@cse01: ~/testyak0010@cse01:~/test$ exit
+exit
+
+Script done on 2020-02-03 16:54:22-0600
