@@ -1,3 +1,8 @@
+// Name: Yafet Kubrom
+// EUID: 11334602
+// Crs: csce3600.001
+// ...client...
+
 // compile: gcc rec09svr.c -o rec09svr
 // usage  : ./rec09svr port
 
@@ -10,16 +15,22 @@
 #include <errno.h>
 #include <string.h>
 #include <sys/types.h>
- 
+
 int main(int argc, char *argv[])
 {
-	int listenfd = 0, connfd = 0, cli_size, portno;
+  if (argc =! 2)
+  {
+    printf("Enter port number\n");
+    exit(1);
+  }
+
+  int listenfd = 0, connfd = 0, cli_size, portno;
 
 	struct sockaddr_in serv_addr, cli_addr;
 
-	char sendBuff[1025];  
- 
-	if ((listenfd = socket(  ?  )) == -1)
+	char sendBuff[1025];
+
+	if ((listenfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
 	{
 		printf("socket error\n");
 		exit(EXIT_FAILURE);
@@ -28,19 +39,22 @@ int main(int argc, char *argv[])
 	memset(&serv_addr, '0', sizeof(serv_addr));
 	memset(sendBuff, '0', sizeof(sendBuff));
 
-	serv_addr.sin_family = AF_INET;    
-	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY); 
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	portno = atoi(argv[1]);
-	serv_addr.sin_port = htons(portno);    
+	serv_addr.sin_port = htons(portno);
 
-	if (bind(  ?  ) == -1)
+  int on = 1;
+  setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
+
+	if (bind(listenfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
 	{
 		printf("bind error\n");
 		exit(EXIT_FAILURE);
 	}
 
 
-	if (listen(  ?  ) == -1)
+	if (listen(listenfd, 5) == -1)
 	{
 		printf("listen error\n");
 		exit(EXIT_FAILURE);
@@ -49,7 +63,7 @@ int main(int argc, char *argv[])
 	while (1)
 	{
 		cli_size = sizeof(cli_addr);
-		if ((connfd = accept(  ?  )) == -1)
+		if ((connfd = accept(listenfd, (struct sockaddr *)&cli_addr, &cli_size)) == -1)
 		{
 			printf("accept error\n");
 			exit(EXIT_FAILURE);
@@ -58,10 +72,9 @@ int main(int argc, char *argv[])
 		strcpy(sendBuff, "Server Message: SUCCESS\n");
 		write(connfd, sendBuff, strlen(sendBuff));
 
-		close(connfd);    
+		close(connfd);
 		sleep(1);
-	} 
- 
+	}
+
 	return 0;
 }
-
