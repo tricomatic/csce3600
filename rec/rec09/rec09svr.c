@@ -1,7 +1,7 @@
 // Name: Yafet Kubrom
 // EUID: 11334602
 // Crs: csce3600.001
-// ...client...
+// ...server...
 
 // compile: gcc rec09svr.c -o rec09svr
 // usage  : ./rec09svr port
