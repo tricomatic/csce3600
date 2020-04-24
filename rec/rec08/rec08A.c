@@ -1,3 +1,11 @@
+// Name.....Yafet Kubrom
+// EUID.....11334602
+// Date.....04/03/2020
+// Course...CSCE3600.001
+//.......Rec08A...........
+
+
+
 /*
  * usage: ./a.out text_pattern input_file output_file
  * Executes the command "grep text_pattern < input_file > output_file"
@@ -15,7 +23,7 @@ int main(int argc, char **argv)
 
 	if (argc == 4)
 	{
-		// grep on text_pattern 
+		// grep on text_pattern
   		char *grep_args[] = {"grep", argv[1], NULL};
 
 		// open input and output files
@@ -23,16 +31,12 @@ int main(int argc, char **argv)
 		ofp = open(argv[3], O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IWGRP | S_IWUSR);
 
 		// duplicate input file to stdin
-		
-
+		dup2(ifp, 0);
 		// duplicate output file to stdout
-		
-
-		// close unused input file descriptor
-		
-        
-		// close unused output file descriptor
-        
+		dup2(ofp, 1);
+		// close unused input and output file descriptor
+		close(ifp);
+		close(ofp);
 
 		// execute grep
 		execvp("grep", grep_args);
