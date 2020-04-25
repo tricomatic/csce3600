@@ -1,3 +1,7 @@
+// so far, it executes multiple commands by using many child process
+// example: ls -al; touch file1; ps -u
+// they will execute in order 
+
 
 #include <stdio.h>
 #include <stdlib.h>	// fork()

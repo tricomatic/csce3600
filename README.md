@@ -22,6 +22,7 @@ This course focus on systems programming, from standpoint of learning how comput
   - rec 7 - thread
   - rec 8 - IPC (redirection and pipeline)
   - rec 9 - socket (internet stream over tcp)
+  - rec 10- Compiler (compiler construction (flex))
 
 ## Notes
 - Bash
@@ -29,3 +30,4 @@ This course focus on systems programming, from standpoint of learning how comput
 - Processes
 - Threads
 - Sockets
+- Compiler

@@ -1,0 +1,2 @@
+ls -al; touch file1; touch file2
+touch file3; rm file1; ls
