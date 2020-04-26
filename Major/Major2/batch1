@@ -1,2 +1,3 @@
 ls -al; touch file1; touch file2
 touch file3; rm file1; ls
+cat input_file | grep dallas | cut -b 1-10
