@@ -1,0 +1,15 @@
+# compiled source #
+###################
+*.exe
+*.o
+*.dll
+*.class
+*.out
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes

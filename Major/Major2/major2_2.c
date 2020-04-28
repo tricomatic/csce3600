@@ -111,10 +111,6 @@ void interactive(char input[], char *aliasNames[], char *aliasCom[])
 {
 	char *tmp[15]; // separate the string by semicolons
 	char *cmd[15]; // store command(s) separated by space
-	//char* tok = malloc(sizeof(char) * 512);			// separate words in input by spaces
-	//char* curr = malloc(sizeof(char) * 512);
-	// char* separated = malloc(sizeof(char) * 512);	// stores the current command in tmp that the loop is on
-	// char* tokInput = malloc(sizeof(char) * 512); // stores all words for a command separated by single spaces (ex. " ls   -al  " -> "ls -al")
 	int k = 0; // k will iterate through the array
 	int m = 0;
 	int runExit = 0;
@@ -124,36 +120,18 @@ void interactive(char input[], char *aliasNames[], char *aliasCom[])
 
 	int runAlias = 0; //used to detect if an aliased command was entered
 
+	
 	//char* temp = malloc(sizeof(char) * 512);
 	strcpy(hist[digit++], input);
 	digit2++;
 	if (digit == 20) digit = 0;
 
-
 	// split input by semicolons
 	input = strtok(input, ";"); // strtok() break up string by semicolons
 	while (input != NULL)
 	{
-		// char* tok;
-		// char* curr;
-		// tok = malloc(sizeof(char) * 512);
-		// curr = malloc(sizeof(char) * 512);
-		// strcpy(tokInput, "");
-
-		// strcpy(curr, temp);
-		// tok = strtok(curr, " ");
-		// while(tok != NULL)
-		// {
-		// 	strcat(tokInput, tok); // add current token (word) to string
-		// 	strcat(tokInput, " "); // add a single space
-		// 	tok = strtok(NULL, " "); // iterate through pointer
-		// }
-		// tokInput[strlen(tokInput)-1] = '\0'; // essentially removes the last space added in the above loop
-
 		tmp[k] = input;
-		//printf("--> input before:%s\n", input);
 		input = strtok(NULL, ";"); //iterate througth pointer
-		//printf("--> input after:%s\n", input);
 		k++;
 	}
 	tmp[k] = NULL; // k is number of commands
@@ -177,17 +155,16 @@ void interactive(char input[], char *aliasNames[], char *aliasCom[])
 			separated = strtok(NULL, " "); // iterate through pointer
 		}
 		tokInput[strlen(tokInput) - 1] = '\0'; // essentially removes the last space added in the above loop
-		//printf("--> NEWSTRING:\"%s\"\n", tokInput);
 		tmp[m] = tokInput;
 	}
-	//printf("user:\'%s\'\n", tmp[0]);
 
 	// so far, commands are separated by ;
 	// now we execute each one. assuming there are more than one.
 
 	for (i = 0; i < k; i++)
 	{
-		// for testing --> printf(" --> COMMAND TO BE EXECUTED: \"%s\"\n", tmp[i]);
+
+		
 		// if command is pipe, piped(char *input)
 		if (strchr(tmp[i], '|') != NULL)
 			piped(tmp[i]);
@@ -467,7 +444,7 @@ void myhistory(char *input) // Yafet
 	{
 		for (int i = 0; i < digit2; i++)
 		{
-			memset(tmp[i], 0, sizeof(tmp[i]));
+			memset((char *)tmp[i], 0, strlen(tmp[i]));
 			digit2 = 0;
 			digit = 0;
 		}
@@ -529,7 +506,7 @@ void alias(char *input, char *aliasNames[], char *aliasCom[]) // Michael
 	{
 		for (int i = 0; i < /*aliasNames size*/ 100; i++)
 		{
-			if (aliasNames[i] == "")
+			if (strcmp(aliasNames[i], "") == 0)
 			{
 				empty++;
 			}
@@ -543,7 +520,7 @@ void alias(char *input, char *aliasNames[], char *aliasCom[]) // Michael
 		{
 			for (int i = 0; i < /*aliasNames size*/ 100; i++)
 			{
-				if (aliasNames[i] != "")
+				if (strcmp(aliasNames[i], "") != 0)
 				{
 					printf("%s has been aliased as %s\n", aliasCom[i], aliasNames[i]);
 				}
@@ -584,7 +561,7 @@ void alias(char *input, char *aliasNames[], char *aliasCom[]) // Michael
 			int ap2Exist = 0;
 
 			int nameLen = 0;
-			int comLen = 0;
+			//int comLen = 0;
 			len = strlen(alCom);
 
 			//Finds how many characters until equal sign
@@ -626,21 +603,21 @@ void alias(char *input, char *aliasNames[], char *aliasCom[]) // Michael
 			}
 			alC[cntr] = '\0';
 
-			//			printf("%s\n", alN);
-			//			printf("%s\n", alC);
+			//printf("%s\n", alN);
+			//rintf("%s\n", alC);
 
 			if (eqExist == 1 && ap1Exist == 1 && ap2Exist == 1)
 			{
 				for (int i = 0; i < /*aliasNames size*/ 100; i++)
 				{
-					if (aliasNames[i] == "" && aliased == 0)
+					if (strcmp(aliasNames[i], "") == 0 && aliased == 0)
 					{
-						//						printf("%d\n", i);
+						//printf("%d\n", i);
 						aliasNames[i] = strdup(alN);
 						aliasCom[i] = strdup(alC);
 						aliased = 1;
-						//						printf("%s\n", aliasNames[i]);
-						//						printf("%s\n", aliasCom[i]);
+						//printf("%s\n", aliasNames[i]);
+						//printf("%s\n", aliasCom[i]);
 						break;
 					}
 				}
@@ -656,16 +633,6 @@ void alias(char *input, char *aliasNames[], char *aliasCom[]) // Michael
 	}
 }
 
-/*void toExit() // Brandon
-{
-	printf("This is exit\n");
-}*/
-
-/*void signalHandle(int iSIG)   // Brandon
-{
-  // handle the signal
-}
-*/
 void path(char *input) // Colton
 {
 	int len = strlen(input);	// stores length of total user input
@@ -688,7 +655,7 @@ void path(char *input) // Colton
 				strcat(path, ":");			  // modify PATH
 				strcat(path, &input[7]);	  // ...
 				setenv("PATH", path, 1);	  // set PATH
-				printf("%s", getenv("PATH"));
+				printf("%s\n", getenv("PATH"));
 			}
 			else if (input[5] == '-') // if minus command specified
 			{
@@ -706,6 +673,7 @@ void path(char *input) // Colton
 					tok = strtok(NULL, ":");			// iterate through tokens
 				}
 				setenv("PATH", modPath, 1);				// set PATH
+				printf("%s\n", getenv("PATH"));
 			}
 			else
 			{
