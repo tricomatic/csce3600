@@ -12,6 +12,7 @@ This course focus on systems programming, from standpoint of learning how comput
   - Minor 2 - bash
   - Minor 3 - command-line interpreter (Linux Kernel)
   - Minor 4 - sockets (tic-tac-toe)
+  - Minor 5 - python  (tic-tac-toe)
 3. Recitation
   - rec 1 - bitwise operator (convert ASCII character to decimal)
   - rec 2 - bitwise operator (swap two variables without using third variable)
