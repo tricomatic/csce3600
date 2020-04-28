@@ -31,3 +31,4 @@ This course focus on systems programming, from standpoint of learning how comput
 - Threads
 - Sockets
 - Compiler
+- Python
